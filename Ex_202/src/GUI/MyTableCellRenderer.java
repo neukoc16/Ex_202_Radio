@@ -27,6 +27,13 @@ public class MyTableCellRenderer implements TableCellRenderer {
             default:
                 label.setText("???");
         }
+        if (column == 3) {
+            if (s.getBand().equals("AM")) {
+                label.setBackground(Color.BLUE);
+            } else if (s.getBand().equals("FM")) {
+                label.setBackground(Color.RED);
+            }
+        }
         return label;
     }
 }

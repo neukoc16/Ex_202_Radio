@@ -1,9 +1,14 @@
 package GUI;
 
+import BL.SenderTableModel;
+
 public class GUI extends javax.swing.JFrame {
+
+    SenderTableModel model = new SenderTableModel();
 
     public GUI() {
         initComponents();
+        tbtable.setModel(model);
     }
 
     @SuppressWarnings("unchecked")
@@ -76,7 +81,11 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_mihideActionPerformed
 
     private void miaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miaddActionPerformed
-        // TODO add your handling code here:
+        SenderDlg dia = new SenderDlg(this, true);
+        dia.setVisible(true);
+        if (dia.getSender() != null) {
+
+        }
     }//GEN-LAST:event_miaddActionPerformed
 
     private void mishowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mishowActionPerformed

@@ -24,4 +24,8 @@ public class Sender {
         return frequency;
     }
 
+    public Object getColValue(int col) {
+        return col;
+    }
+
 }
