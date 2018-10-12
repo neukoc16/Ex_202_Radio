@@ -13,19 +13,32 @@ public class SenderTableModel extends AbstractTableModel {
         fireTableDataChanged();
     }
 
+    public void updateNumCols(int numCols) {
+        colNames = new String[numCols];
+        for (int i = 0; i < numCols; i++) {
+            colNames[i] = "Col " + i;
+        }
+
+        fireTableStructureChanged();
+    }
+
+    @Override
+    public String getColumnName(int i) {
+        return colNames[i];
+    }
+
     @Override
     public int getRowCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return sender.size();
     }
 
     @Override
     public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return colNames.length;
     }
 
     @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Object getValueAt(int row, int col) {
+        return sender.get(row).getColValue(col);
     }
-
 }
