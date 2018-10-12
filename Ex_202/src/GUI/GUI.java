@@ -15,7 +15,7 @@ public class GUI extends javax.swing.JFrame {
         mihide = new javax.swing.JMenuItem();
         mishow = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbtable = new javax.swing.JTable();
 
         miadd.setText("hinzufügen");
         miadd.addActionListener(new java.awt.event.ActionListener() {
@@ -43,7 +43,7 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -54,7 +54,7 @@ public class GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbtable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,10 +100,10 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JMenuItem miadd;
     private javax.swing.JMenuItem mihide;
     private javax.swing.JMenuItem mishow;
     private javax.swing.JPopupMenu pmmenu;
+    private javax.swing.JTable tbtable;
     // End of variables declaration//GEN-END:variables
 }
