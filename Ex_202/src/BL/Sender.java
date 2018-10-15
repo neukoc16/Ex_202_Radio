@@ -2,9 +2,9 @@ package BL;
 
 public class Sender {
 
-    private String name;
-    private double frequency;
-    private String band;
+    private final String name;
+    private final double frequency;
+    private final String band;
 
     public Sender(String name, double frequency, String band) {
         this.name = name;
@@ -23,9 +23,4 @@ public class Sender {
     public double getFrequency() {
         return frequency;
     }
-
-    public Object getColValue(int col) {
-        return col;
-    }
-
 }

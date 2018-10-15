@@ -1,6 +1,7 @@
 package GUI;
 
 import BL.SenderTableModel;
+import javax.swing.JFileChooser;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -9,6 +10,16 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
         tbtable.setModel(model);
+        tbtable.setDefaultRenderer(Object.class, new MyTableCellRenderer());
+        JFileChooser jfc = new JFileChooser(".");
+        int re = jfc.showOpenDialog(this);
+        if (re == JFileChooser.APPROVE_OPTION) {
+            try {
+                model.load(jfc.getSelectedFile());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -47,6 +58,13 @@ public class GUI extends javax.swing.JFrame {
         pmmenu.add(mishow);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        jScrollPane1.setComponentPopupMenu(pmmenu);
 
         tbtable.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
         tbtable.setModel(new javax.swing.table.DefaultTableModel(
@@ -60,6 +78,7 @@ public class GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbtable.setComponentPopupMenu(pmmenu);
         jScrollPane1.setViewportView(tbtable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -77,20 +96,31 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mihideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mihideActionPerformed
-        // TODO add your handling code here:
+        model.hide();
     }//GEN-LAST:event_mihideActionPerformed
 
     private void miaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miaddActionPerformed
         SenderDlg dia = new SenderDlg(this, true);
         dia.setVisible(true);
         if (dia.getSender() != null) {
-
+            model.add(dia.s);
         }
     }//GEN-LAST:event_miaddActionPerformed
 
     private void mishowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mishowActionPerformed
-        // TODO add your handling code here:
+        model.show();
     }//GEN-LAST:event_mishowActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        JFileChooser chooser = new JFileChooser(".");
+        int re = chooser.showSaveDialog(this);
+        if (re == JFileChooser.APPROVE_OPTION) {
+            try {
+                model.save(chooser.getSelectedFile());
+            } catch (Exception e) {
+            }
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     public static void main(String args[]) {
         try {

@@ -4,7 +4,7 @@ import BL.Sender;
 
 public class SenderDlg extends javax.swing.JDialog {
 
-    public Sender s = null;
+    public Sender s;
 
     public SenderDlg(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -100,17 +100,17 @@ public class SenderDlg extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btokActionPerformed
-        s = null;
-        this.dispose();
+        try {
+            s = new Sender(tfname.getText(), Double.parseDouble(tffreq.getText()), tfband.getText());
+            this.dispose();
+        } catch (NumberFormatException e) {
+        }
     }//GEN-LAST:event_btokActionPerformed
 
     private void btcancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcancelActionPerformed
-        s = new Sender(tfname.getText(), Double.parseDouble(tffreq.getText()), tfband.getText());
+        s = null;
         this.dispose();
     }//GEN-LAST:event_btcancelActionPerformed
-    public Sender getSender() {
-        return s;
-    }
 
     public static void main(String args[]) {
         try {
@@ -145,4 +145,8 @@ public class SenderDlg extends javax.swing.JDialog {
     private javax.swing.JTextField tffreq;
     private javax.swing.JTextField tfname;
     // End of variables declaration//GEN-END:variables
+
+    Object getSender() {
+        return s;
+    }
 }
