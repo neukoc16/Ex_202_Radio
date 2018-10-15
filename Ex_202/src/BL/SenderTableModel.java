@@ -64,9 +64,7 @@ public class SenderTableModel extends AbstractTableModel {
             while ((o = ois.readObject()) instanceof Sender) {
                 add((Sender) o);
             }
-            last = (int) o;
             //Danke @Matthias
-            fireTableStructureChanged();
         } catch (EOFException e) {
         }
         ois.close();
