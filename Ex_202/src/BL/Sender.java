@@ -1,6 +1,8 @@
 package BL;
 
-public class Sender {
+import java.io.Serializable;
+
+public class Sender implements Serializable {
 
     private final String name;
     private final double frequency;
