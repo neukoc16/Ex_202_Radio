@@ -111,7 +111,6 @@ public class SenderDlg extends javax.swing.JDialog {
         s = null;
         this.dispose();
     }//GEN-LAST:event_btcancelActionPerformed
-
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -145,7 +144,6 @@ public class SenderDlg extends javax.swing.JDialog {
     private javax.swing.JTextField tffreq;
     private javax.swing.JTextField tfname;
     // End of variables declaration//GEN-END:variables
-
     Object getSender() {
         return s;
     }

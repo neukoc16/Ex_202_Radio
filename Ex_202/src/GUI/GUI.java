@@ -94,11 +94,9 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     private void mihideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mihideActionPerformed
         model.hide();
     }//GEN-LAST:event_mihideActionPerformed
-
     private void miaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miaddActionPerformed
         SenderDlg dia = new SenderDlg(this, true);
         dia.setVisible(true);
@@ -106,11 +104,9 @@ public class GUI extends javax.swing.JFrame {
             model.add(dia.s);
         }
     }//GEN-LAST:event_miaddActionPerformed
-
     private void mishowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mishowActionPerformed
         model.show();
     }//GEN-LAST:event_mishowActionPerformed
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         JFileChooser chooser = new JFileChooser(".");
         int re = chooser.showSaveDialog(this);
@@ -121,7 +117,6 @@ public class GUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_formWindowClosing
-
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -137,7 +132,6 @@ public class GUI extends javax.swing.JFrame {
             new GUI().setVisible(true);
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem miadd;
